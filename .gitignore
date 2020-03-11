@@ -102,3 +102,12 @@ dist
 
 # TernJS port file
 .tern-port
+
+# IDE files
+.idea/
+
+# Npm install files
+package-lock.json
+
+# Bundle file
+/**/bundle.min.js*
