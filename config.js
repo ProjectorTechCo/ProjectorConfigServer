@@ -1,19 +1,23 @@
+const schema =  require("./schema");
 const config = {
     "dev": {
-        "entityQuerier": "http://localhost:5000",
+        "entityQuerier": "http://localhost:5000/",
         "postgres": {
             host: "localhost",
             port: 5432,
             user: 'postgres',
             database: 'postgres'
         },
-        "app": "http://localhost:9000"
+        "app": "http://localhost:9000/",
+        schema
     }, "prod": {}
 };
 
+console.log(config.dev.schema.projects);
+
 const relevantConfig = {
-    "entityQuerier": ["postgres", "app"],
-    "app": ["entityQuerier"]
+    "entityQuerier": ["postgres", "app", "schema"],
+    "app": ["entityQuerier", "schema"]
 };
 
 const getConfig = (service, env) => {
